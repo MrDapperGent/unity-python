@@ -6,6 +6,7 @@ public sealed class UnityPython
 	public static ScriptEngine CreateEngine()
 	{
 		var engine = Python.CreateEngine();
+		engine.EmptySearchPaths ();
 
 		var unityEngine = typeof(UnityEngine.GameObject).Assembly;
 		engine.Runtime.LoadAssembly(unityEngine);

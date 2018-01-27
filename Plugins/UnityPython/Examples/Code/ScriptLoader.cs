@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Microsoft.Scripting.Hosting;
-using System.Collections;
 
 public class ScriptLoader : MonoBehaviour {
 
