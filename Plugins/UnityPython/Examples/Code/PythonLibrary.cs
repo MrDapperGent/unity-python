@@ -14,7 +14,14 @@ namespace Exodrifter.UnityPython.Examples
 			// not work for builds; you will need to manually place the python
 			// library files in a place that your code can find it at runtime.
 			var paths = engine.GetSearchPaths();
-			paths.Add(Application.dataPath + "/Python/Lib");
+			if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor) {
+				print (Application.dataPath + "/StreamingAssets/Python/Lib");
+				paths.Add (Application.dataPath + "/StreamingAssets/Python/Lib");
+			}
+			// Not tested on android yet, since the files are compressed, it may require a WWW call to get them first.
+			if (Application.platform == RuntimePlatform.Android) {
+				paths.Add ("jar:file://" + Application.dataPath + "!/assets/Python/Lib");
+			}
 			engine.SetSearchPaths (paths);
 
 			string code = @"
