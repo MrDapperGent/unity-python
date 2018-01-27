@@ -1,0 +1,4 @@
+import UnityEngine
+
+x = 2
+UnityEngine.Debug.Log(x == 2)

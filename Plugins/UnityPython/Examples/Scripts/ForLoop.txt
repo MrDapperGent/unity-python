@@ -1,0 +1,4 @@
+import UnityEngine
+
+for x in range(0, 100):
+	UnityEngine.Debug.Log('Count: %d' % (x))
